@@ -20,8 +20,9 @@ async def main():
     # The pay_stubs endpoint is not able to be authorized
     # pay_stubs_response = await fetch_pay_stubs(client)
     employments_response = await fetch_employments(client)
+    departments_response = await fetch_departments(client)
 
-    return people_response, employments_response
+    return people_response, employments_response, departments_response
 
 
 async def fetch_people(client):
@@ -42,6 +43,13 @@ async def fetch_employments(client):
     response = await resp.json()
     employments = employments_dict(response)
     return employments
+
+
+async def fetch_departments(client):
+  async with client.get(f"https://api.zenefits.com/core/companies/{company}/departments", headers=headers) as resp:
+    response = await resp.json()
+    departments = departments_dict(response)
+    return departments
 
 
 def people_dict(response):
@@ -71,6 +79,16 @@ def employments_dict(response):
     employments[person['id']] = person
   
   return json.dumps(employments)
+
+
+def departments_dict(response):
+  departments = {}
+
+  for department in response['data']['data']:
+    # This returns the department id
+    departments[department['id']] = department
+
+  return json.dumps(departments)
 
 
 loop = asyncio.get_event_loop()
