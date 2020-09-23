@@ -15,8 +15,7 @@ headers = {
 payload = {}
 
 async def fetch(client):
-  async with client.get("http://api.zenefits.com/core/people", headers=headers, data = payload) as resp:
-    # assert resp.status == 200
+  async with client.get("https://api.zenefits.com/core/companies/76795/people", headers=headers, data=payload) as resp:
     return await resp.json()
 
 
