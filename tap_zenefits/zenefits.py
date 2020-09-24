@@ -106,7 +106,7 @@ def time_durations_dict(response):
 
   for duration in response['data']['data']:
     # This returns the person id, but it could return the duration id.
-    # The person id value is set to a list of all durations
+    # The person id has a value of a list that contains all durations
     person = duration['person']['url'].split("people/")
     time_durations[person[1]].append(duration)
 
