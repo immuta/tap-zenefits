@@ -17,10 +17,10 @@ setup process.
 
 ### Environment Variables
 
-- `python-dotenv` is included to handle environment variables
-- A `.env` file will be created if one doesn't exist
-  - **Never** add `.env` to version control
-- Add private environment variables to the `.env` file if necessary
+- The `python-dotenv` package is included to handle secret environment variables
+- On install a `.env` file will be created in the project root if one doesn't exist
+  - **Never** add `.env` to version control!
+- Add secret environment variables to the `.env` file if necessary
 - The `.gitignore` file includes `.env` by default
 
 ### Add native Poetry virtualenv support to VS Code (optional)
