@@ -4,15 +4,27 @@ A Singer tap for Zenefits.
 
 ## Setup :: Developers
 
+If you are already familiar with `Python Poetry` and `python-dotenv` the next few
+sections of this readme do not contain any new information; follow the standard
+setup process.
+
+### Dependencies and Virtualenvs
+
 - Install: [Python Poetry](https://python-poetry.org/)
   - Poetry handles dependencies and virtual environments
 - After pulling the repo run `poetry install`
-  - Ensures all dependencies are the correct version
-  - `python-dotenv` is included to handle environment variables
-    - A `.env` file will be created if one doesn't exist
-      - **Never** add `.env` to version control
-    - Add private environment variables to the `.env` file if necessary
-    - The `.gitignore` file includes `.env` by default
+  - This ensures all dependencies and virtualenvs are the correct version
+
+### Environment Variables
+
+- `python-dotenv` is included to handle environment variables
+- A `.env` file will be created if one doesn't exist
+  - **Never** add `.env` to version control
+- Add private environment variables to the `.env` file if necessary
+- The `.gitignore` file includes `.env` by default
+
+### Add native Poetry virtualenv support to VS Code (optional)
+
 - VS Code can be configured to support Poetry virtual environments natively
   - This only needs to be done once
   - Add the following to the VS Code `settings.json` file, or use the `settings` gui:
