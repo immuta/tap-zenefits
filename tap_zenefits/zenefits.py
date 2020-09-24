@@ -3,6 +3,7 @@ import asyncio
 import json
 from dotenv import load_dotenv
 import os
+from collections import defaultdict
 
 load_dotenv()
 
@@ -21,8 +22,9 @@ async def main():
     # pay_stubs_response = await fetch_pay_stubs(client)
     employments_response = await fetch_employments(client)
     departments_response = await fetch_departments(client)
+    time_durations_response = await fetch_time_durations(client)
 
-    return people_response, employments_response, departments_response
+    return people_response, employments_response, departments_response, time_durations_response
 
 
 async def fetch_people(client):
@@ -50,6 +52,13 @@ async def fetch_departments(client):
     response = await resp.json()
     departments = departments_dict(response)
     return departments
+
+
+async def fetch_time_durations(client):
+  async with client.get("https://api.zenefits.com/time_attendance/time_durations", headers=headers) as resp:
+    response = await resp.json()
+    time_durations = time_durations_dict(response)
+    return time_durations
 
 
 def people_dict(response):
@@ -89,6 +98,19 @@ def departments_dict(response):
     departments[department['id']] = department
 
   return json.dumps(departments)
+
+
+def time_durations_dict(response):
+  time_durations = {}
+  time_durations = defaultdict(lambda:[], time_durations)
+
+  for duration in response['data']['data']:
+    # This returns the person id, but it could return the duration id.
+    # The person id value is set to a list of all durations
+    person = duration['person']['url'].split("people/")
+    time_durations[person[1]].append(duration)
+
+  return json.dumps(time_durations)
 
 
 loop = asyncio.get_event_loop()
