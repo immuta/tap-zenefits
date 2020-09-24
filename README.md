@@ -4,7 +4,7 @@ A Singer tap for Zenefits.
 
 ## Setup :: Developers
 
-- Install Python Poetry: [Poetry](https://python-poetry.org/)
+- Install: [Python Poetry](https://python-poetry.org/)
   - Poetry handles dependencies and virtual environments
 - After pulling the repo run `poetry install`
   - Ensures all dependencies are the correct version
