@@ -24,6 +24,10 @@ async def main():
         people_response = await fetch_people(client, companies['dandelion chocolate'])
         # The pay_stubs endpoint is not able to be authorized
         # pay_stubs_response = await fetch_pay_stubs(client)
+
+        # The payruns endpoint is accessible, but the `data` is empty
+        # payruns_response = await fetch_payruns(client)
+
         employments_response = await fetch_employments(client)
         departments_response = await fetch_departments(client, companies['dandelion chocolate'])
         time_durations_response = await fetch_time_durations(client)
