@@ -36,12 +36,14 @@ async def fetch_people(client):
         return response
 
 
+# This endpoint is accessible, but the data field is empty. Waiting on Dandelion response.
 async def fetch_payruns(client):
     async with client.get("https://api.zenefits.com/payroll/payruns", headers=headers) as resp:
         response = await resp.json()
         return response
 
 
+# This endpoint is not accessible: unauthorized. The Bearer Token used is the same as other endpoints.
 async def fetch_pay_stubs(client):
     async with client.get("https://api.zenefits.com/payroll/payrun_pay_stubs", headers=headers) as resp:
         response = await resp.json()
