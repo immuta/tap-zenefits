@@ -9,7 +9,7 @@ from tap_zenefits.zenefits import *
 @pytest.mark.asyncio
 async def test_fetch_people():
     async with aiohttp.ClientSession() as client:
-        response = await fetch_people(client)
+        response = await fetch_people(client, companies['dandelion chocolate'])
     
     first_response = response['data']['data'][0]
 
@@ -49,7 +49,7 @@ async def test_fetch_employments():
 @pytest.mark.asyncio
 async def test_fetch_departments():
     async with aiohttp.ClientSession() as client:
-        response = await fetch_departments(client)
+        response = await fetch_departments(client, companies['dandelion chocolate'])
 
     first_response = response['data']['data'][0]
 
