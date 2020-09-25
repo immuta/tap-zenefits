@@ -36,10 +36,16 @@ async def fetch_people(client):
         return response
 
 
+async def fetch_payruns(client):
+    async with client.get("https://api.zenefits.com/payroll/payruns", headers=headers) as resp:
+        response = await resp.json()
+        return response
+
+
 async def fetch_pay_stubs(client):
     async with client.get("https://api.zenefits.com/payroll/payrun_pay_stubs", headers=headers) as resp:
         response = await resp.json()
-        return json.dumps(response)
+        return response
 
 
 async def fetch_employments(client):
@@ -59,8 +65,8 @@ async def fetch_departments(client):
 async def fetch_time_durations(client):
     async with client.get("https://api.zenefits.com/time_attendance/time_durations", headers=headers) as resp:
         response = await resp.json()
-        time_durations = time_durations_dict(response)
-        return time_durations
+        # time_durations = time_durations_dict(response)
+        return response
 
 
 loop = asyncio.get_event_loop()
