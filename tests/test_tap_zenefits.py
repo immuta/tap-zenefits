@@ -4,21 +4,6 @@ import pytest_asyncio
 import pytest_vcr
 from tap_zenefits.zenefits import *
 
-# Try to find a way to reuse the ClientSession
-# Maybe like: `client = aiohttp.ClientSession()`
-# I'm not sure if this is possible for tests
-# @pytest.fixture
-# async def service(endpoint):
-#     async with aiohttp.ClientSession() as client:
-#         return await endpoint(client)
-
-# Creating a class to reuse might work
-# class ApiClient:
-#     def __init__(self):
-#         self.client = aiohttp.ClientSession()
-    
-
-# api = ApiClient()
 
 @pytest.mark.vcr()
 @pytest.mark.asyncio
@@ -76,3 +61,28 @@ async def test_fetch_departments():
     assert 'id' in first_response
     assert 'name' in first_response
 
+
+@pytest.mark.vcr()
+@pytest.mark.asyncio
+async def test_fetch_time_durations():
+    async with aiohttp.ClientSession() as client:
+        response = await fetch_time_durations(client)
+
+    first_response = response['data']['data'][0]
+
+    assert response['status'] == 200
+    assert 'is_overnight' in first_response
+    assert 'is_approved' in first_response
+    assert 'end' in first_response
+    assert 'person' in first_response
+    assert 'url' in first_response
+    assert 'approver' in first_response
+    assert 'labor_group_ids' in first_response
+    assert 'hours' in first_response
+    assert 'start' in first_response
+    assert 'state' in first_response
+    assert 'approved_datetime' in first_response
+    assert 'valid_status' in first_response
+    assert 'date' in first_response
+    assert 'activity' in first_response
+    assert 'id' in first_response
