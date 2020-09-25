@@ -59,3 +59,20 @@ async def test_fetch_employments():
     assert 'termination_date' in first_response
     assert 'id' in first_response
 
+
+@pytest.mark.vcr()
+@pytest.mark.asyncio
+async def test_fetch_departments():
+    async with aiohttp.ClientSession() as client:
+        response = await fetch_departments(client)
+
+    first_response = response['data']['data'][0]
+
+    assert response['status'] == 200
+    assert 'labor_group' in first_response
+    assert 'people' in first_response
+    assert 'company' in first_response
+    assert 'url' in first_response
+    assert 'id' in first_response
+    assert 'name' in first_response
+
