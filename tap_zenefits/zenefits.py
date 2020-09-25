@@ -8,9 +8,11 @@ from tap_zenefits.helpers_dandelion import *
 
 load_dotenv()
 
-company = '76795'
+companies = {
+    'dandelion chocolate': '76795'
+}
 
-API_KEY = os.getenv("API_KEY")
+API_KEY = json.loads(os.getenv("API_KEYS"))["dandelion chocolate"]
 
 headers = {
     'Authorization': API_KEY
@@ -19,17 +21,17 @@ headers = {
 
 async def main():
     async with aiohttp.ClientSession() as client:
-        people_response = await fetch_people(client)
+        people_response = await fetch_people(client, companies['dandelion chocolate'])
         # The pay_stubs endpoint is not able to be authorized
         # pay_stubs_response = await fetch_pay_stubs(client)
         employments_response = await fetch_employments(client)
-        departments_response = await fetch_departments(client)
+        departments_response = await fetch_departments(client, companies['dandelion chocolate'])
         time_durations_response = await fetch_time_durations(client)
 
         return people_response, employments_response, departments_response, time_durations_response
 
 
-async def fetch_people(client):
+async def fetch_people(client, company):
     async with client.get(f"https://api.zenefits.com/core/companies/{company}/people", headers=headers) as resp:
         response = await resp.json()
         # people = people_dict(response)
@@ -57,7 +59,7 @@ async def fetch_employments(client):
         return response
 
 
-async def fetch_departments(client):
+async def fetch_departments(client, company):
     async with client.get(f"https://api.zenefits.com/core/companies/{company}/departments", headers=headers) as resp:
         response = await resp.json()
         # departments = departments_dict(response)
