@@ -22,6 +22,10 @@ setup process.
   - **Never** add `.env` to version control!
 - Add secret environment variables to the `.env` file if necessary
 - The `.gitignore` file includes `.env` by default
+- API keys can be accessed by calling the `API_KEYS` environment variable and adding
+the `["company name"]` key to the end of the call
+  - This enables `API_KEYS` to scale with any number of companies
+  - Example: `json.loads(os.getenv("API_KEYS"))["dandelion chocolate"]`
 
 ### Add native Poetry virtualenv support to VS Code (optional)
 
@@ -57,3 +61,56 @@ within the `.vscode` directory as follows:
 
 New to Poetry? The docs are excellent, and there is more information about
 managing environments [here](https://python-poetry.org/docs/managing-environments/).
+
+## Usage Notes
+
+This service is designed to be client agnostic, but does require the correct client `API_KEY` to be loaded
+from the `API_KEYS` environment variable. To get a client's `API_KEY` use the their company name:
+
+```python
+API_KEY = json.loads(os.getenv("API_KEYS"))["client name"]
+```
+
+The client's `company_id` also needs to be set from the dictionary of clients in order to use the `fetch_people()`
+and `fetch_departments()` endpoints. Here is an example:
+
+```python
+# zenefits.py
+
+companies = {
+    'dandelion chocolate': '76795'
+}
+
+
+async def main():
+    async with aiohttp.ClientSession() as client:
+        people_response = await fetch_people(client, companies['dandelion chocolate'])
+        employments_response = await fetch_employments(client)
+        departments_response = await fetch_departments(client, companies['dandelion chocolate'])
+        time_durations_response = await fetch_time_durations(client)
+
+        return people_response, employments_response, departments_response, time_durations_response
+```
+
+## Helpful Documentation
+
+Documentation for packages used in this project.
+
+### `AIOHTTP` Package :: Client and Server Requests
+
+- [AIOHTTP Docs](https://docs.aiohttp.org/en/latest/index.html)
+
+### `VCR.py` Package :: Records API requests for testing
+
+- [VCR.py Docs](https://vcrpy.readthedocs.io/en/latest/)
+
+### `Pytest` Package and Plugins :: Testing
+
+- [Pytest Docs](https://docs.pytest.org/en/stable/index.html)
+- [Pytest VCR Docs](https://pytest-vcr.readthedocs.io/en/latest/)
+- [Pytest Asyncio Docs](https://pypi.org/project/pytest-asyncio/)
+- [Pytest Aiohttp Docs](https://pypi.org/project/pytest-aiohttp/)
+
+### `Python-Dotenv` Package :: Environment Variables
+
+- [Python Dotenv Docs](https://pypi.org/project/python-dotenv/)
