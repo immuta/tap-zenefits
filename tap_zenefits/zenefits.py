@@ -51,8 +51,8 @@ async def fetch_employments(client):
 async def fetch_departments(client):
     async with client.get(f"https://api.zenefits.com/core/companies/{company}/departments", headers=headers) as resp:
         response = await resp.json()
-        departments = departments_dict(response)
-        return departments
+        # departments = departments_dict(response)
+        return response
 
 
 async def fetch_time_durations(client):
