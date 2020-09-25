@@ -68,7 +68,7 @@ This service is designed to be client agnostic, but does require the correct cli
 from the `API_KEYS` environment variable. To get a client's `API_KEY` use the their company name:
 
 ```python
-API_KEY = json.loads(os.getenv("API_KEYS"))["client name"]
+API_KEY = json.loads(os.getenv("API_KEYS"))["company name"]
 ```
 
 The client's `company_id` also needs to be set from the dictionary of clients in order to use the `fetch_people()`
