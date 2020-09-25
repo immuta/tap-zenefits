@@ -115,6 +115,6 @@ Documentation for packages used in this project.
 - [Pytest Asyncio Docs](https://pypi.org/project/pytest-asyncio/)
 - [Pytest Aiohttp Docs](https://pypi.org/project/pytest-aiohttp/)
 
-### `Python-Dotenv` Package :: Environment Variables
+### `Python Dotenv` Package :: Environment Variables
 
 - [Python Dotenv Docs](https://pypi.org/project/python-dotenv/)
