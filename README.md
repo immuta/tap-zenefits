@@ -20,11 +20,10 @@ setup process.
 - The `python-dotenv` package is included to handle secret environment variables
 - On install a `.env` file will be created in the project root if one doesn't exist
   - **Never** add `.env` to version control!
+  - The `.gitignore` file includes `.env` by default
 - Add secret environment variables to the `.env` file if necessary
-- The `.gitignore` file includes `.env` by default
 - API keys can be accessed by calling the `API_KEYS` environment variable and adding
-the `["company name"]` key to the end of the call
-  - This enables `API_KEYS` to scale with any number of companies
+the `["company name"]` key to the end of the call. This enables `API_KEYS` to scale with any number of companies
   - Example: `json.loads(os.getenv("API_KEYS"))["dandelion chocolate"]`
 
 ### Add native Poetry virtualenv support to VS Code (optional)
