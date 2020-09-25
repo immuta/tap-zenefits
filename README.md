@@ -96,11 +96,15 @@ async def main():
 
 Documentation for packages used in this project.
 
+### `Python Poetry` Package :: Dependency and Environment Management
+
+- [Python Poetry Docs](https://python-poetry.org/docs/)
+
 ### `AIOHTTP` Package :: Client and Server Requests
 
 - [AIOHTTP Docs](https://docs.aiohttp.org/en/latest/index.html)
 
-### `VCR.py` Package :: Records API requests for testing
+### `VCR.py` Package :: Records API Requests for Testing
 
 - [VCR.py Docs](https://vcrpy.readthedocs.io/en/latest/)
 
