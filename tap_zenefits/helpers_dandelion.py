@@ -18,7 +18,7 @@ def people_dict(response):
             'photo_url': person['photo_url']
         }
 
-    return json.dumps(employees)
+    return employees
 
 
 def employments_dict(response):
@@ -28,7 +28,7 @@ def employments_dict(response):
         # This returns the employment id, but it could return the people id
         employments[person['id']] = person
 
-    return json.dumps(employments)
+    return employments
 
 
 def departments_dict(response):
@@ -38,7 +38,7 @@ def departments_dict(response):
         # This returns the department id
         departments[department['id']] = department
 
-    return json.dumps(departments)
+    return departments
 
 
 def time_durations_dict(response):
@@ -51,4 +51,4 @@ def time_durations_dict(response):
         person = duration['person']['url'].split("people/")
         time_durations[person[1]].append(duration)
 
-    return json.dumps(time_durations)
+    return time_durations
