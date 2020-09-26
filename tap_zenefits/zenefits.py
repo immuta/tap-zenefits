@@ -4,15 +4,11 @@ import json
 from dotenv import load_dotenv
 import os
 from collections import defaultdict
-from tap_zenefits.helpers_dandelion import *
+
 
 load_dotenv()
-
-companies = {
-    'dandelion chocolate': '76795'
-}
-
-API_KEY = json.loads(os.getenv("API_KEYS"))["dandelion chocolate"]
+company_id = json.loads(os.getenv("dandelion_chocolate"))['company_id']
+API_KEY = json.loads(os.getenv("dandelion_chocolate"))['token']
 
 headers = {
     'Authorization': API_KEY
@@ -27,9 +23,9 @@ async def main():
         # The payruns endpoint is accessible, but the `data` is empty
         # payruns_response = await fetch_payruns(client)
 
-        people_response = await fetch_people(client, companies['dandelion chocolate'])
+        people_response = await fetch_people(client, company_id)
         employments_response = await fetch_employments(client)
-        departments_response = await fetch_departments(client, companies['dandelion chocolate'])
+        departments_response = await fetch_departments(client, company_id)
         time_durations_response = await fetch_time_durations(client)
 
         return people_response, employments_response, departments_response, time_durations_response
