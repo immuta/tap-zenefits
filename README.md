@@ -91,6 +91,68 @@ async def main():
         return people_response, employments_response, departments_response, time_durations_response
 ```
 
+### Zenefits API :: Endpoint Functions
+
+- Payruns Endpoint :: `https://api.zenefits.com/payroll/payruns`
+  - [Payruns Docs](https://developers.zenefits.com/v1.0/docs/plt-zpayruns)
+
+```python
+async def fetch_payruns(client):
+    async with client.get("https://api.zenefits.com/payroll/payruns", headers=headers) as resp:
+        response = await resp.json()
+        return response
+```
+
+- Pay Stubs Endpoint :: `https://api.zenefits.com/payroll/payrun_pay_stubs`
+  - [Pay Stubs Docs](https://developers.zenefits.com/docs/payrun-pay-stubs)
+
+```python
+async def fetch_pay_stubs(client):
+    async with client.get("https://api.zenefits.com/payroll/payrun_pay_stubs", headers=headers) as resp:
+        response = await resp.json()
+        return response
+```
+
+- People Endpoint :: `https://api.zenefits.com/core/companies/{:company_id}/people`
+  - [People Docs](https://developers.zenefits.com/docs/people)
+
+```python
+async def fetch_people(client, company):
+    async with client.get(f"https://api.zenefits.com/core/companies/{company}/people", headers=headers) as resp:
+        response = await resp.json()
+        return response
+```
+
+- Employments Endpoint :: `https://api.zenefits.com/core/employments`
+  - [Employments Docs](https://developers.zenefits.com/docs/employment)
+
+```python
+async def fetch_employments(client):
+    async with client.get("https://api.zenefits.com/core/employments", headers=headers) as resp:
+        response = await resp.json()
+        return response
+```
+
+- Departments Endpoint :: `https://api.zenefits.com/core/companies/{:id}/departments`
+  - [Departments Docs](https://developers.zenefits.com/docs/department)
+
+```python
+async def fetch_departments(client, company):
+    async with client.get(f"https://api.zenefits.com/core/companies/{company}/departments", headers=headers) as resp:
+        response = await resp.json()
+        return response
+```
+
+- Time Durations Endpoint :: `https://api.zenefits.com/time_attendance/time_durations`
+  - [Time Durations Docs](https://developers.zenefits.com/docs/time-durations)
+
+```python
+async def fetch_time_durations(client):
+    async with client.get("https://api.zenefits.com/time_attendance/time_durations", headers=headers) as resp:
+        response = await resp.json()
+        return response
+```
+
 ## Helpful Documentation
 
 Documentation for packages used in this project.
