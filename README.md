@@ -85,7 +85,7 @@ API_KEY = json.loads(os.getenv("company_name"))["token"]
 company_id = json.loads(os.getenv("company_name"))["company_id"]
 ```
 
-### Zenefits API :: Endpoint Functions
+## Zenefits API :: Endpoint Functions
 
 - Payruns Endpoint :: `https://api.zenefits.com/payroll/payruns`
   - [Payruns Docs](https://developers.zenefits.com/v1.0/docs/plt-zpayruns)
