@@ -6,7 +6,7 @@ A Singer tap for Zenefits.
 
 If you are already familiar with `Python Poetry` and `python-dotenv` the next few
 sections of this readme do not contain any new information; follow the standard
-setup process.
+setup process and proceed to the `Usage Notes` section.
 
 ### Dependencies and Virtualenvs
 
