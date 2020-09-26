@@ -178,3 +178,8 @@ Documentation for packages used in this project.
 ### `Python Dotenv` Package :: Environment Variables
 
 - [Python Dotenv Docs](https://pypi.org/project/python-dotenv/)
+
+### Zenefits API Documentation
+
+- [Zenefits API Docs](https://developers.zenefits.com/docs/getting-started)
+
