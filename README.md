@@ -113,6 +113,11 @@ Documentation for packages used in this project.
 - [Pytest VCR Docs](https://pytest-vcr.readthedocs.io/en/latest/)
 - [Pytest Asyncio Docs](https://pypi.org/project/pytest-asyncio/)
 - [Pytest Aiohttp Docs](https://pypi.org/project/pytest-aiohttp/)
+- [Pytest Cov Docs](https://pytest-cov.readthedocs.io/en/latest/readme.html)
+
+### `Coverage.py` Package :: Test Coverage
+
+- [Coverage.py](https://coverage.readthedocs.io/en/coverage-5.3/)
 
 ### `Python Dotenv` Package :: Environment Variables
 
