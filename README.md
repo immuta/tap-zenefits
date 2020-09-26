@@ -85,6 +85,38 @@ API_KEY = json.loads(os.getenv("company_name"))["token"]
 company_id = json.loads(os.getenv("company_name"))["company_id"]
 ```
 
+- To return data from a single endpoint:
+
+```python
+# zenefits.py
+...
+
+company_id = json.loads(os.getenv("dandelion_chocolate"))['company_id']
+session = aiohttp.ClientSession()
+
+...
+
+loop = asyncio.get_event_loop()
+api_response = loop.run_until_complete(fetch_people(session, company_id))
+```
+
+- To return data from all endpoints as a list of tuples:
+
+```python
+# zenefits.py
+
+...
+
+loop = asyncio.get_event_loop()
+api_response = loop.run_until_complete(main())
+```
+
+- The list of tuples will be returned in this order:
+
+```python
+api_response == ([people], [employments], [departments], [time_durations])
+```
+
 ## Zenefits API :: Endpoint Functions
 
 - Payruns Endpoint :: `https://api.zenefits.com/payroll/payruns`
@@ -182,4 +214,3 @@ Documentation for packages used in this project.
 ### Zenefits API Documentation
 
 - [Zenefits API Docs](https://developers.zenefits.com/docs/getting-started)
-

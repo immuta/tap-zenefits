@@ -14,6 +14,7 @@ headers = {
     'Authorization': API_KEY
 }
 
+session = aiohttp.ClientSession()
 
 async def main():
     async with aiohttp.ClientSession() as client:
@@ -74,4 +75,6 @@ async def fetch_time_durations(client):
 
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+api_response = loop.run_until_complete(main())
+
+print(api_response)
