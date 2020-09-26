@@ -21,10 +21,10 @@ If you are already familiar with `Python Poetry` and `python-dotenv` the next fe
   - The `.gitignore` file includes `.env` by default
 - Add secret environment variables to the `.env` file if necessary
 - Each `company_name` environment variable contains stringified `json`
-- The Zenefits API key for each company can be accessed by calling the associated `company_name` environment variable with the `token` key.
-  - Example: `json.loads(os.getenv("dandelion_chocolate"))["token"]`
-- The Zenefits company id for each company can be accessed by calling the `company_name` environment variable with the `company_id` key.
-  - Example: `json.loads(os.getenv("dandelion_chocolate"))["company_id"]`
+- The Zenefits API key for each company can be accessed by calling the associated `company_name` environment variable with the `token` key. Example:
+  - `json.loads(os.getenv("dandelion_chocolate"))["token"]`
+- The Zenefits company id for each company can be accessed by calling the `company_name` environment variable with the `company_id` key. Example:
+  - `json.loads(os.getenv("dandelion_chocolate"))["company_id"]`
 - A new company environment variable should be added to the `.env` file in this format:
 
 ```txt
