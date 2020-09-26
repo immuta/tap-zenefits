@@ -10,6 +10,12 @@ aiohttp = "^3.6.2"
 cchardet = "^2.1.6"
 aiodns = "^2.0.0"
 python-dotenv = "^0.14.0"
+pyyaml = "^5.3.1"
+vcrpy = "^4.1.0"
+pytest-vcr = "^1.0.2"
+pytest-asyncio = "^0.14.0"
+coverage = "^5.3"
+pytest-cov = "^2.10.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

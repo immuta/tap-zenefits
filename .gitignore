@@ -1,2 +1,6 @@
 .env
 .vscode
+*__pycache__
+.pytest_cache
+tests/cassettes
+.coverage
