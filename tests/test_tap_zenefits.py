@@ -3,13 +3,14 @@ import pytest
 import pytest_asyncio
 import pytest_vcr
 from tap_zenefits.zenefits import *
+from tap_zenefits.helpers_dandelion import *
 
 
 @pytest.mark.vcr()
 @pytest.mark.asyncio
 async def test_fetch_people():
     async with aiohttp.ClientSession() as client:
-        response = await fetch_people(client, companies['dandelion chocolate'])
+        response = await fetch_people(client, company_id)
     
     first_response = response['data']['data'][0]
 
@@ -77,7 +78,7 @@ async def test_fetch_employments():
 @pytest.mark.asyncio
 async def test_fetch_departments():
     async with aiohttp.ClientSession() as client:
-        response = await fetch_departments(client, companies['dandelion chocolate'])
+        response = await fetch_departments(client, company_id)
 
     first_response = response['data']['data'][0]
 

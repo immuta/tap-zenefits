@@ -4,9 +4,7 @@ A Singer tap for Zenefits.
 
 ## Setup :: Developers
 
-If you are already familiar with `Python Poetry` and `python-dotenv` the next few
-sections of this readme do not contain any new information; follow the standard
-setup process and proceed to the `Usage Notes` section.
+If you are already familiar with `Python Poetry` and `python-dotenv` the next few sections of this `README` do not contain any new information; follow the standard setup process and proceed to the `Usage Notes` section.
 
 ### Dependencies and Virtualenvs
 
@@ -22,9 +20,19 @@ setup process and proceed to the `Usage Notes` section.
   - **Never** add `.env` to version control!
   - The `.gitignore` file includes `.env` by default
 - Add secret environment variables to the `.env` file if necessary
-- API keys can be accessed by calling the `API_KEYS` environment variable and adding
-the `["company name"]` key to the end of the call. This enables `API_KEYS` to scale with any number of companies
-  - Example: `json.loads(os.getenv("API_KEYS"))["dandelion chocolate"]`
+- Each `company_name` environment variable contains stringified `json`
+- The Zenefits API key for each company can be accessed by calling the associated `company_name` environment variable with the `token` key. Example:
+  - `json.loads(os.getenv("dandelion_chocolate"))["token"]`
+- The Zenefits company id for each company can be accessed by calling the `company_name` environment variable with the `company_id` key. Example:
+  - `json.loads(os.getenv("dandelion_chocolate"))["company_id"]`
+- A new company environment variable should be added to the `.env` file in this format:
+
+```txt
+# .env
+...
+
+new_company_name='{"token": "Bearer Ks20818dk/2jX", "company_id": "54321"}'
+```
 
 ### Add native Poetry virtualenv support to VS Code (optional)
 
@@ -63,32 +71,18 @@ managing environments [here](https://python-poetry.org/docs/managing-environment
 
 ## Usage Notes
 
-This service is designed to be client agnostic, but does require the correct client `API_KEY` to be loaded
-from the `API_KEYS` environment variable. To get a client's `API_KEY` use the their company name:
+This service is designed to be company agnostic, but it does require the correct company `token` and `company_id` to be loaded from the `company_name` environment variable.
+
+- To access and set a company's `token`:
 
 ```python
-API_KEY = json.loads(os.getenv("API_KEYS"))["company name"]
+API_KEY = json.loads(os.getenv("company_name"))["token"]
 ```
 
-The client's `company_id` also needs to be set from the dictionary of clients in order to use the `fetch_people()`
-and `fetch_departments()` endpoints. Here is an example:
+- To access and set a company's `company_id`:
 
 ```python
-# zenefits.py
-
-companies = {
-    'dandelion chocolate': '76795'
-}
-
-
-async def main():
-    async with aiohttp.ClientSession() as client:
-        people_response = await fetch_people(client, companies['dandelion chocolate'])
-        employments_response = await fetch_employments(client)
-        departments_response = await fetch_departments(client, companies['dandelion chocolate'])
-        time_durations_response = await fetch_time_durations(client)
-
-        return people_response, employments_response, departments_response, time_durations_response
+company_id = json.loads(os.getenv("company_name"))["company_id"]
 ```
 
 ### Zenefits API :: Endpoint Functions
