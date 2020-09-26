@@ -147,3 +147,63 @@ async def test_fetch_time_durations():
     assert 'date' in first_parsed_response
     assert 'activity' in first_parsed_response
     assert 'id' in first_parsed_response
+
+
+@pytest.mark.vcr()
+def test_main():
+    response = loop.run_until_complete(main())
+
+    people_first_response = response[0]['data']['data'][0]
+
+    assert response[0]['status'] == 200
+    assert 'first_name' in people_first_response
+    assert 'last_name' in people_first_response
+    assert 'employee_number' in people_first_response
+    assert 'manager' in people_first_response
+    assert 'department' in people_first_response
+    assert 'title' in people_first_response
+    assert 'work_email' in people_first_response
+    assert 'work_phone' in people_first_response
+    assert 'photo_url' in people_first_response
+
+    employments_first_response = response[1]['data']['data'][0]
+
+    assert response[1]['status'] == 200
+    assert 'amount_type' in employments_first_response
+    assert 'pay_rate' in employments_first_response
+    assert 'person' in employments_first_response
+    assert 'hire_date' in employments_first_response
+    assert 'employment_type' in employments_first_response
+    assert 'is_active' in employments_first_response
+    assert 'annual_salary' in employments_first_response
+    assert 'termination_date' in employments_first_response
+    assert 'id' in employments_first_response
+
+    departments_first_response = response[2]['data']['data'][0]
+
+    assert response[2]['status'] == 200
+    assert 'labor_group' in departments_first_response
+    assert 'people' in departments_first_response
+    assert 'company' in departments_first_response
+    assert 'url' in departments_first_response
+    assert 'id' in departments_first_response
+    assert 'name' in departments_first_response
+
+    time_durations_first_response = response[3]['data']['data'][0]
+
+    assert response[3]['status'] == 200
+    assert 'is_overnight' in time_durations_first_response
+    assert 'is_approved' in time_durations_first_response
+    assert 'end' in time_durations_first_response
+    assert 'person' in time_durations_first_response
+    assert 'url' in time_durations_first_response
+    assert 'approver' in time_durations_first_response
+    assert 'labor_group_ids' in time_durations_first_response
+    assert 'hours' in time_durations_first_response
+    assert 'start' in time_durations_first_response
+    assert 'state' in time_durations_first_response
+    assert 'approved_datetime' in time_durations_first_response
+    assert 'valid_status' in time_durations_first_response
+    assert 'date' in time_durations_first_response
+    assert 'activity' in time_durations_first_response
+    assert 'id' in time_durations_first_response
