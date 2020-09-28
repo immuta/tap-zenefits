@@ -73,25 +73,25 @@ managing environments [here](https://python-poetry.org/docs/managing-environment
 
 This service is designed to be company agnostic, but it does require the correct company `token` and `company_id` to be loaded from the `company_name` environment variable.
 
-- To access and set a company's `token`:
+### Access and set a company's `token`
 
 ```python
 API_KEY = json.loads(os.getenv("company_name"))["token"]
 ```
 
-- To access and set a company's `company_id`:
+### Access and set a company's `company_id`
 
 ```python
 company_id = json.loads(os.getenv("company_name"))["company_id"]
 ```
 
-- To return data from a single endpoint:
+### Return data from a single endpoint
 
 ```python
 # zenefits.py
 ...
 
-# Set the company_id and API_KEY for the desired company
+# Set the company_id and API_KEY for the desired company if necessary.
 company_id = json.loads(os.getenv("company_name"))["company_id"]
 API_KEY = json.loads(os.getenv("company_name"))["token"]
 
@@ -111,7 +111,7 @@ loop = asyncio.get_event_loop()
 api_response = loop.run_until_complete(fetch_endpoint())
 ```
 
-- To return data from all endpoints as a list of tuples:
+### Return data from all endpoints as a list of tuples
 
 ```python
 # zenefits.py
