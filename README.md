@@ -92,10 +92,12 @@ company_id = json.loads(os.getenv("company_name"))["company_id"]
 ...
 
 # Set the company_id and API_KEY for the desired company
-company_id = json.loads(os.getenv("company_name"))['company_id']
-API_KEY = json.loads(os.getenv("company_name"))['token']
+company_id = json.loads(os.getenv("company_name"))["company_id"]
+API_KEY = json.loads(os.getenv("company_name"))["token"]
 
-# Set the endpoint function to call; fetch_people() in this example.
+...
+
+# Set the endpoint function to call; fetch_people() is called in this example.
 async def fetch_endpoint():
     async with aiohttp.ClientSession() as client:
         response = await fetch_people(client, company_id)
@@ -105,6 +107,7 @@ async def fetch_endpoint():
 ...
 
 loop = asyncio.get_event_loop()
+# Pass the endpoint function to the loop.
 api_response = loop.run_until_complete(fetch_endpoint())
 ```
 
@@ -114,6 +117,7 @@ api_response = loop.run_until_complete(fetch_endpoint())
 # zenefits.py
 ...
 
+# This function returns all endpoint data.
 async def fetch_all_endpoints():
     async with aiohttp.ClientSession() as client:
         people_response = await fetch_people(client, company_id)
@@ -126,6 +130,7 @@ async def fetch_all_endpoints():
 ...
 
 loop = asyncio.get_event_loop()
+#Pass the endpoint function to the loop.
 api_response = loop.run_until_complete(fetch_all_endpoints())
 ```
 
