@@ -150,8 +150,8 @@ async def test_fetch_time_durations():
 
 
 @pytest.mark.vcr()
-def test_main():
-    response = loop.run_until_complete(main())
+def test_fetch_all_endpoints():
+    response = loop.run_until_complete(fetch_all_endpoints())
 
     people_first_response = response[0]['data']['data'][0]
 
