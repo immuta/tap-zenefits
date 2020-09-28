@@ -14,9 +14,15 @@ headers = {
     'Authorization': API_KEY
 }
 
-session = aiohttp.ClientSession()
 
-async def main():
+async def fetch_endpoint():
+    async with aiohttp.ClientSession() as client:
+        response = await fetch_people(client, company_id)
+        
+        return response
+
+
+async def fetch_all_endpoints():
     async with aiohttp.ClientSession() as client:
         # The pay_stubs endpoint is not able to be authorized
         # pay_stubs_response = await fetch_pay_stubs(client)
@@ -35,7 +41,6 @@ async def main():
 async def fetch_people(client, company):
     async with client.get(f"https://api.zenefits.com/core/companies/{company}/people", headers=headers) as resp:
         response = await resp.json()
-        # people = people_dict(response)
         return response
 
 
@@ -56,25 +61,22 @@ async def fetch_pay_stubs(client):
 async def fetch_employments(client):
     async with client.get("https://api.zenefits.com/core/employments", headers=headers) as resp:
         response = await resp.json()
-        # employments = employments_dict(response)
         return response
 
 
 async def fetch_departments(client, company):
     async with client.get(f"https://api.zenefits.com/core/companies/{company}/departments", headers=headers) as resp:
         response = await resp.json()
-        # departments = departments_dict(response)
         return response
 
 
 async def fetch_time_durations(client):
     async with client.get("https://api.zenefits.com/time_attendance/time_durations", headers=headers) as resp:
         response = await resp.json()
-        # time_durations = time_durations_dict(response)
         return response
 
 
 loop = asyncio.get_event_loop()
-api_response = loop.run_until_complete(main())
+api_response = loop.run_until_complete(fetch_endpoint())
 
 print(api_response)
