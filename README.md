@@ -22,9 +22,9 @@ If you are already familiar with `Python Poetry` and `python-dotenv` the next fe
 - Add secret environment variables to the `.env` file if necessary
 - Each `company_name` environment variable contains stringified `json`
 - The Zenefits API key for each company can be accessed by calling the associated `company_name` environment variable with the `token` key. Example:
-  - `json.loads(os.getenv("dandelion_chocolate"))["token"]`
+  - `json.loads(os.getenv("company_name"))["token"]`
 - The Zenefits company id for each company can be accessed by calling the `company_name` environment variable with the `company_id` key. Example:
-  - `json.loads(os.getenv("dandelion_chocolate"))["company_id"]`
+  - `json.loads(os.getenv("company_name"))["company_id"]`
 - A new company environment variable should be added to the `.env` file in this format:
 
 ```txt
@@ -91,24 +91,42 @@ company_id = json.loads(os.getenv("company_name"))["company_id"]
 # zenefits.py
 ...
 
-company_id = json.loads(os.getenv("dandelion_chocolate"))['company_id']
-session = aiohttp.ClientSession()
+# Set the company_id and API_KEY for the desired company
+company_id = json.loads(os.getenv("company_name"))['company_id']
+API_KEY = json.loads(os.getenv("company_name"))['token']
+
+# Set the endpoint function to call; fetch_people() in this example.
+async def fetch_endpoint():
+    async with aiohttp.ClientSession() as client:
+        response = await fetch_people(client, company_id)
+
+        return response
 
 ...
 
 loop = asyncio.get_event_loop()
-api_response = loop.run_until_complete(fetch_people(session, company_id))
+api_response = loop.run_until_complete(fetch_endpoint())
 ```
 
 - To return data from all endpoints as a list of tuples:
 
 ```python
 # zenefits.py
+...
+
+async def fetch_all_endpoints():
+    async with aiohttp.ClientSession() as client:
+        people_response = await fetch_people(client, company_id)
+        employments_response = await fetch_employments(client)
+        departments_response = await fetch_departments(client, company_id)
+        time_durations_response = await fetch_time_durations(client)
+
+        return people_response, employments_response, departments_response, time_durations_response
 
 ...
 
 loop = asyncio.get_event_loop()
-api_response = loop.run_until_complete(main())
+api_response = loop.run_until_complete(fetch_all_endpoints())
 ```
 
 - The list of tuples will be returned in this order:
