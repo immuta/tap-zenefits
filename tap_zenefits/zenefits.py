@@ -83,5 +83,3 @@ loop = asyncio.get_event_loop()
 api_response = loop.run_until_complete(fetch_endpoint())
 data = api_response['data']['data']
 data_frame = pd.DataFrame(data)
-
-pp.pprint(data)
