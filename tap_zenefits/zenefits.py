@@ -4,7 +4,10 @@ import json
 from dotenv import load_dotenv
 import os
 from collections import defaultdict
+import pandas as pd
+import pprint
 
+pp = pprint.PrettyPrinter(indent=4, depth=3)
 
 load_dotenv()
 company_id = json.loads(os.getenv("dandelion_chocolate"))['company_id']
@@ -78,5 +81,5 @@ async def fetch_time_durations(client):
 
 loop = asyncio.get_event_loop()
 api_response = loop.run_until_complete(fetch_endpoint())
-
-print(api_response)
+data = api_response['data']['data']
+data_frame = pd.DataFrame(data)

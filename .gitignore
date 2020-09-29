@@ -4,3 +4,4 @@
 .pytest_cache
 tests/cassettes
 .coverage
+*.DS_Store
