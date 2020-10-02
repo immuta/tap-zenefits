@@ -6,6 +6,9 @@ import os
 from collections import defaultdict
 import pandas as pd
 import pprint
+import singer
+from datetime import datetime, timezone
+
 
 pp = pprint.PrettyPrinter(indent=4, depth=3)
 
