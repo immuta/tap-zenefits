@@ -8,13 +8,15 @@ import pandas as pd
 import pprint
 import singer
 from datetime import datetime, timezone
+from people_schema import People
 
+person = People()
 
 pp = pprint.PrettyPrinter(indent=4, depth=3)
 
-load_dotenv()
-company_id = json.loads(os.getenv("dandelion_chocolate"))['company_id']
-API_KEY = json.loads(os.getenv("dandelion_chocolate"))['token']
+args = singer.utils.parse_args(["token", "company_id"])
+company_id = args.config['company_id']
+API_KEY = args.config['token']
 
 headers = {
     'Authorization': API_KEY
@@ -24,6 +26,13 @@ headers = {
 async def fetch_endpoint():
     async with aiohttp.ClientSession() as client:
         response = await fetch_people(client, company_id)
+
+        singer.write_schema('people', person.schema, 'id')
+        singer.write_records('people', response["data"]["data"])
+
+        # The code below is an alternative option to iterate through the response if necessary.
+        # for record in response["data"]["data"]:
+            # singer.write_records('people', record)
         
         return response
 
