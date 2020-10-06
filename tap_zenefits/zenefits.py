@@ -9,8 +9,18 @@ import pprint
 import singer
 from datetime import datetime, timezone
 from people_schema import People
+from payruns_schema import Payruns
+from pay_stubs_schema import PayStubs
+from employments_schema import Employments
+from departments_schema import Departments
+from time_durations_schema import TimeDurations
 
 person = People()
+payrun = Payruns()
+pay_stub = PayStubs()
+employment = Employments()
+department = Departments()
+time_duration = TimeDurations()
 
 pp = pprint.PrettyPrinter(indent=4, depth=3)
 
@@ -23,18 +33,18 @@ headers = {
 }
 
 
-async def fetch_endpoint():
+async def fetch_endpoint(endpoint_name):
     async with aiohttp.ClientSession() as client:
-        response = await fetch_people(client, company_id)
+        endpoints = {
+            "people": await fetch_people(client, company_id),
+            "payruns": await fetch_payruns(client),
+            "pay_stubs": await fetch_pay_stubs(client),
+            "employments": await fetch_employments(client),
+            "departments": await fetch_departments(client, company_id),
+            "time_durations": await fetch_time_durations(client)
+        }
 
-        singer.write_schema('people', person.schema, 'id')
-        singer.write_records('people', response["data"]["data"])
-
-        # The code below is an alternative option to iterate through the response if necessary.
-        # for record in response["data"]["data"]:
-            # singer.write_records('people', record)
-        
-        return response
+        return endpoints[endpoint_name]
 
 
 async def fetch_all_endpoints():
@@ -56,6 +66,10 @@ async def fetch_all_endpoints():
 async def fetch_people(client, company):
     async with client.get(f"https://api.zenefits.com/core/companies/{company}/people", headers=headers) as resp:
         response = await resp.json()
+
+        singer.write_schema('people', person.schema, 'id')
+        singer.write_records('people', response["data"]["data"])
+
         return response
 
 
@@ -63,6 +77,10 @@ async def fetch_people(client, company):
 async def fetch_payruns(client):
     async with client.get("https://api.zenefits.com/payroll/payruns", headers=headers) as resp:
         response = await resp.json()
+
+        singer.write_schema('payruns', payrun.schema, 'id')
+        singer.write_records('payruns', response["data"]["data"])
+
         return response
 
 
@@ -70,28 +88,42 @@ async def fetch_payruns(client):
 async def fetch_pay_stubs(client):
     async with client.get("https://api.zenefits.com/payroll/payrun_pay_stubs", headers=headers) as resp:
         response = await resp.json()
+
+        singer.write_schema('pay_stubs', pay_stub.schema, 'id')
+        singer.write_records('pay_stubs', response["data"]["data"])
+
         return response
 
 
 async def fetch_employments(client):
     async with client.get("https://api.zenefits.com/core/employments", headers=headers) as resp:
         response = await resp.json()
+
+        singer.write_schema('employments', employment.schema, 'id')
+        singer.write_records('employments', response["data"]["data"])
+
         return response
 
 
 async def fetch_departments(client, company):
     async with client.get(f"https://api.zenefits.com/core/companies/{company}/departments", headers=headers) as resp:
         response = await resp.json()
+
+        singer.write_schema('departments', department.schema, 'id')
+        singer.write_records('departments', response["data"]["data"])
+
         return response
 
 
 async def fetch_time_durations(client):
     async with client.get("https://api.zenefits.com/time_attendance/time_durations", headers=headers) as resp:
         response = await resp.json()
+
+        singer.write_schema('time_durations', time_duration.schema, 'id')
+        singer.write_records('time_durations', response["data"]["data"])
+
         return response
 
 
 loop = asyncio.get_event_loop()
-api_response = loop.run_until_complete(fetch_endpoint())
-data = api_response['data']['data']
-data_frame = pd.DataFrame(data)
+api_response = loop.run_until_complete(fetch_endpoint("people"))
