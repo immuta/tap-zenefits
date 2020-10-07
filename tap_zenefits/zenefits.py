@@ -8,12 +8,8 @@ import pandas as pd
 import pprint
 import singer
 from datetime import datetime, timezone
-from people_schema import People
-from payruns_schema import Payruns
-from pay_stubs_schema import PayStubs
-from employments_schema import Employments
-from departments_schema import Departments
-from time_durations_schema import TimeDurations
+from schema_classes import People, Payruns, PayStubs, Employments, Departments, TimeDurations
+
 
 person = People()
 payrun = Payruns()
@@ -44,7 +40,10 @@ async def fetch_endpoint(endpoint_name):
             "time_durations": await fetch_time_durations(client)
         }
 
-        return endpoints[endpoint_name]
+        try:
+            return endpoints[endpoint_name]
+        except KeyError:
+            return "Key not found. Please enter a valid endpoint: people, payruns, pay_stubs, employments, departments, time_durations"
 
 
 async def fetch_all_endpoints():
@@ -126,4 +125,4 @@ async def fetch_time_durations(client):
 
 
 loop = asyncio.get_event_loop()
-api_response = loop.run_until_complete(fetch_endpoint("people"))
+loop.run_until_complete(fetch_endpoint("people"))
