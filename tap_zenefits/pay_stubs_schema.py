@@ -1,9 +1,9 @@
 import json
 
+
 class PayStubs:
-  schema = {
-    "properties": {
-        {
+    schema = {
+        "properties": {
             "object": {
                 "type": ["string", "null"]
             },
@@ -159,9 +159,9 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "": {
-                                "type": ["string", "null"]
-                            }
+                        "": {
+                            "type": ["string", "null"]
+                        }
                     }
                 },
                 {
@@ -178,9 +178,9 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "": {
-                                "type": ["string", "null"]
-                            }
+                        "": {
+                            "type": ["string", "null"]
+                        }
                     }
                 },
                 {
@@ -197,12 +197,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 }
             ],
@@ -221,12 +221,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 },
                 {
@@ -243,12 +243,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 }
             ],
@@ -267,12 +267,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 },
                 {
@@ -289,12 +289,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 },
             ],
@@ -316,12 +316,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 }
             ],
@@ -340,12 +340,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 },
                 {
@@ -362,12 +362,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 }
             ],
@@ -386,12 +386,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 },
                 {
@@ -408,12 +408,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 },
                 {
@@ -430,12 +430,12 @@ class PayStubs:
                         "type": ["string", "null"]
                     },
                     "labor_group_ids": {
-                            "group1": {
-                                "type": ["string", "null"]
-                            },
-                            "group2": {
-                                "type": ["string", "null"]
-                            }
+                        "group1": {
+                            "type": ["string", "null"]
+                        },
+                        "group2": {
+                            "type": ["string", "null"]
+                        }
                     }
                 }
             ],
@@ -454,6 +454,6 @@ class PayStubs:
                 "type": ["string", "null"],
                 "key": True
             }
-        },
+
+        }
     }
-  }
