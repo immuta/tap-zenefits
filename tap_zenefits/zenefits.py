@@ -8,8 +8,7 @@ import pandas as pd
 import pprint
 import singer
 from datetime import datetime, timezone
-from schema_classes import People, Payruns, PayStubs, Employments, Departments, TimeDurations
-
+from .schema_classes import People, Payruns, PayStubs, Employments, Departments, TimeDurations
 
 person = People()
 payrun = Payruns()
