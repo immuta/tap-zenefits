@@ -5,3 +5,4 @@
 tests/cassettes
 .coverage
 *.DS_Store
+config*
