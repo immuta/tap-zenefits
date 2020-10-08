@@ -4,7 +4,7 @@ A Singer tap for Zenefits.
 
 ## Setup :: Developers
 
-If you are already familiar with `Python Poetry` and `python-dotenv` the next few sections of this `README` do not contain any new information; follow the standard setup process and proceed to the `Usage Notes` section.
+If you are already familiar with `Python Poetry` and `singer-python` the next few sections of this `README` do not contain any new information; follow the standard setup process and proceed to the `Usage Notes` section.
 
 ### Dependencies and Virtualenvs
 
@@ -15,23 +15,21 @@ If you are already familiar with `Python Poetry` and `python-dotenv` the next fe
 
 ### Environment Variables
 
-- The `python-dotenv` package is included to handle secret environment variables
-- On install a `.env` file will be created in the project root if one doesn't exist
-  - **Never** add `.env` to version control!
-  - The `.gitignore` file includes `.env` by default
-- Add secret environment variables to the `.env` file if necessary
-- Each `company_name` environment variable contains stringified `json`
-- The Zenefits API key for each company can be accessed by calling the associated `company_name` environment variable with the `token` key. Example:
-  - `json.loads(os.getenv("company_name"))["token"]`
-- The Zenefits company id for each company can be accessed by calling the `company_name` environment variable with the `company_id` key. Example:
-  - `json.loads(os.getenv("company_name"))["company_id"]`
-- A new company environment variable should be added to the `.env` file in this format:
+- The `singer-python` package is included to handle secret environment variables
+- There is a `config_tap_<company>.json` file for each company
+  - This file contains `company_id` and `API_KEY`
+- The configuration file used is determined by the command line arguments when launching the tap
+  - `python tap_zenefits.py -c config_tap_<company>.json | target-<name> -c config_target_<name>.json`
+- The `company_id` and `API_KEY` are set by the following code:
 
-```txt
-# .env
+```python
+# zenefits.py
+
 ...
 
-new_company_name='{"token": "Bearer Ks20818dk/2jX", "company_id": "54321"}'
+args = singer.utils.parse_args(["token", "company_id"])
+company_id = args.config['company_id']
+API_KEY = args.config['token']
 ```
 
 ### Add native Poetry virtualenv support to VS Code (optional)
