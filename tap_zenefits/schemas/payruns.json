@@ -1,14 +1,18 @@
 {
+    "type": ["object", "null"],
     "properties": {
         "company": {
-            "url": {
-                "type": ["string", "null"]
-            },
-            "object": {
-                "type": ["string", "null"]
-            },
-            "ref_object": {
-                "type": ["string", "null"]
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
             }
         },
         "check_date": {
@@ -30,14 +34,17 @@
             "type": ["string", "null"]
         },
         "people": {
-            "url": {
-                "type": ["string", "null"]
-            },
-            "object": {
-                "type": ["string", "null"]
-            },
-            "ref_object": {
-                "type": ["string", "null"]
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
             }
         },
         "url": {

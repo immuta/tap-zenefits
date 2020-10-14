@@ -1,455 +1,340 @@
 {
+    "type": ["object", "null"],
     "properties": {
         "object": {
             "type": ["string", "null"]
         },
         "person": {
-            "url": {
-                "type": ["string", "null"]
-            },
-            "object": {
-                "type": ["string", "null"]
-            },
-            "ref_object": {
-                "type": ["string", "null"]
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
             }
         },
         "url": {
             "type": ["string", "null"]
         },
         "summary": {
-            "gross_pay": {
-                "amount_type": {
-                    "type": ["string", "null"]
+            "type": ["object", "null"],
+            "properties": {
+                "gross_pay": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
                 },
-                "amount": {
-                    "type": ["string", "null"]
+                "regular_earnings": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
                 },
-                "ytd_amount": {
-                    "type": ["string", "null"]
+                "company_contributions": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
+                },
+                "person_deductions": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
+                },
+                "garnishments": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
+                },
+                "company_taxes": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
+                },
+                "person_taxes": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
+                },
+                "imputed_pay": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
+                },
+                "reported_tips": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
+                },
+                "reimbursements": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
+                },
+                "cash_tips": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "ytd_amount": {
+                            "type": ["string", "null"]
+                        }
+                    }
                 }
-            },
-            "regular_earnings": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "company_contributions": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "person_deductions": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "garnishments": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "company_taxes": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "person_taxes": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "imputed_pay": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "reported_tips": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "reimbursements": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
-            "cash_tips": {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                }
-            },
+            }
         },
-        "earnings": [
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "": {
-                        "type": ["string", "null"]
-                    }
-                }
-            },
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "": {
-                        "type": ["string", "null"]
-                    }
-                }
-            },
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+        "earnings": {
+            "type": ["array", "null"],
+            "items" : {
+                "type": ["object", "null"],
+                "properties": {
+                    "amount_type": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
+                    "ytd_amount": {
+                        "type": ["string", "null"]
+                    },
+                    "amount": {
+                        "type": ["string", "null"]
+                    },
+                    "name": {
+                        "type": ["string", "null"]
+                    },
+                    "labor_group_ids": {
                         "type": ["string", "null"]
                     }
                 }
             }
-        ],
-        "company_contributions": [
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+        },
+        "company_contributions": {
+            "type": ["array", "null"],
+            "items" : {
+                "type": ["object", "null"],
+                "properties": {
+                    "amount_type": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
-                        "type": ["string", "null"]
-                    }
-                }
-            },
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+                    "ytd_amount": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
+                    "amount": {
+                        "type": ["string", "null"]
+                    },
+                    "name": {
+                        "type": ["string", "null"]
+                    },
+                    "labor_group_ids": {
                         "type": ["string", "null"]
                     }
                 }
             }
-        ],
-        "person_deductions": [
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+        },
+        "person_deductions": {
+            "type": ["array", "null"],
+            "items" : {
+                "type": ["object", "null"],
+                "properties": {
+                    "amount_type": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
-                        "type": ["string", "null"]
-                    }
-                }
-            },
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+                    "ytd_amount": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
-                        "type": ["string", "null"]
-                    }
-                }
-            },
-        ],
-        "garnishments": [
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "category": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+                    "amount": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
+                    "name": {
+                        "type": ["string", "null"]
+                    },
+                    "labor_group_ids": {
                         "type": ["string", "null"]
                     }
                 }
             }
-        ],
-        "company_taxes": [
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+        },
+        "garnishments": {
+            "type": ["array", "null"],
+            "items" : {
+                "type": ["object", "null"],
+                "properties": {
+                    "amount_type": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
-                        "type": ["string", "null"]
-                    }
-                }
-            },
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+                    "ytd_amount": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
+                    "amount": {
+                        "type": ["string", "null"]
+                    },
+                    "name": {
+                        "type": ["string", "null"]
+                    },
+                    "labor_group_ids": {
                         "type": ["string", "null"]
                     }
                 }
             }
-        ],
-        "person_taxes": [
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+        },
+        "company_taxes": {
+            "type": ["array", "null"],
+            "items" : {
+                "type": ["object", "null"],
+                "properties": {
+                    "amount_type": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
-                        "type": ["string", "null"]
-                    }
-                }
-            },
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+                    "ytd_amount": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
-                        "type": ["string", "null"]
-                    }
-                }
-            },
-            {
-                "amount_type": {
-                    "type": ["string", "null"]
-                },
-                "ytd_amount": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "labor_group_ids": {
-                    "group1": {
+                    "amount": {
                         "type": ["string", "null"]
                     },
-                    "group2": {
+                    "name": {
+                        "type": ["string", "null"]
+                    },
+                    "labor_group_ids": {
                         "type": ["string", "null"]
                     }
                 }
             }
-        ],
+        },
+        "person_taxes": {
+            "type": ["array", "null"],
+            "items" : {
+                "type": ["object", "null"],
+                "properties": {
+                    "amount_type": {
+                        "type": ["string", "null"]
+                    },
+                    "ytd_amount": {
+                        "type": ["string", "null"]
+                    },
+                    "amount": {
+                        "type": ["string", "null"]
+                    },
+                    "name": {
+                        "type": ["string", "null"]
+                    },
+                    "labor_group_ids": {
+                        "type": ["string", "null"]
+                    }
+                }
+            }
+        },
         "payrun": {
-            "url": {
-                "type": ["string", "null"]
-            },
-            "object": {
-                "type": ["string", "null"]
-            },
-            "ref_object": {
-                "type": ["string", "null"]
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
             }
         },
         "id": {
             "type": ["string", "null"],
-            "key": True
+            "key": true
         }
-
     }
 }

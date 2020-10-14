@@ -1,14 +1,18 @@
 {
+    "type": ["object", "null"],
     "properties": {
         "person": {
-            "url": {
-                "type": ["string", "null"]
-            },
-            "object": {
-                "type": ["string", "null"]
-            },
-            "ref_object": {
-                "type": ["string", "null"]
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
             }
         },
         "activity": {
@@ -42,20 +46,21 @@
             "type": ["string", "null"]
         },
         "approver": {
-            "url": {
-                "type": ["string", "null"]
-            },
-            "object": {
-                "type": ["string", "null"]
-            },
-            "ref_object": {
-                "type": ["string", "null"]
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
             }
         },
         "labor_group_ids": {
-            "group1": {
-                "type": ["string", "null"]
-            }
+            "type": ["string", "null"]
         },
         "url": {
             "type": ["string", "null"]
@@ -67,5 +72,5 @@
             "type": ["string", "null"],
             "key": true
         }
-    },
+    }
 }
