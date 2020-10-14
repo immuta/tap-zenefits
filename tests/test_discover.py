@@ -47,3 +47,5 @@ async def test_discover():
     catalog = discover()
 
     assert len(catalog.streams) == 6
+    # stream.tap_stream_id
+    # stream.schema
