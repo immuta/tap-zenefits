@@ -1,6 +1,0 @@
-from people_schema import People
-from payruns_schema import Payruns
-from pay_stubs_schema import PayStubs
-from employments_schema import Employments
-from departments_schema import Departments
-from time_durations_schema import TimeDurations
