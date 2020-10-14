@@ -49,3 +49,12 @@ class TimeDurations(FullTableStream):
     tap_stream_id  = 'time_durations'
     key_properties = ['id']
     object_type    = 'TIME_DURATION'
+
+STREAMS = {
+    'departments': Departments,
+    'employments': Employments,
+    'pay_stubs': PayStubs,
+    'payruns': Payruns,
+    'people': People,
+    'time_durations': TimeDurations
+}
