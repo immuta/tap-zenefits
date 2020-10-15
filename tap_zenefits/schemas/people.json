@@ -1,4 +1,5 @@
 {
+    "type": ["object", "null"],
     "properties": {
         "banks": {
             "type": ["object", "null"],
