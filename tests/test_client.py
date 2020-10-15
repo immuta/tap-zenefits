@@ -14,7 +14,7 @@ company_id = os.getenv("COMPANY_ID")
 async def test_fetch_people():
     client = ZenefitsClient(api_key)
     
-    response = await client.fetch_people(company_id)
+    response = client.fetch_people(company_id)
     
     person = response['data']['data'][0]
 
@@ -33,7 +33,7 @@ async def test_fetch_people():
 async def test_fetch_employments():
     client = ZenefitsClient(api_key)
 
-    response = await client.fetch_employments()
+    response = client.fetch_employments()
     
     employment = response['data']['data'][0]
 
@@ -52,7 +52,7 @@ async def test_fetch_employments():
 async def test_fetch_departments():
     client = ZenefitsClient(api_key)
 
-    response = await client.fetch_departments(company_id)
+    response = client.fetch_departments(company_id)
     
     department = response['data']['data'][0]
 
@@ -68,7 +68,7 @@ async def test_fetch_departments():
 async def test_fetch_time_durations():
     client = ZenefitsClient(api_key)
         
-    response = await client.fetch_time_durations()
+    response = client.fetch_time_durations()
 
     time_duration = response['data']['data'][0]
 
@@ -93,7 +93,7 @@ async def test_fetch_time_durations():
 async def test_fetch_payruns():
     client = ZenefitsClient(api_key)
         
-    response = await client.fetch_payruns()
+    response = client.fetch_payruns()
 
     payrun = response['data']['data'][0]
 
@@ -114,7 +114,7 @@ async def test_fetch_payruns():
 async def test_fetch_pay_stubs():
     client = ZenefitsClient(api_key)
         
-    response = await client.fetch_pay_stubs()
+    response = client.fetch_pay_stubs()
 
     pay_stub = response['data']['data'][0]
 

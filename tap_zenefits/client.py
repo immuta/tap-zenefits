@@ -1,48 +1,41 @@
-import aiohttp
-import asyncio
 import json
+import requests
 
 class ZenefitsClient:
+    BASE_URL = "https://api.zenefits.com"
+
     def __init__(self, api_key):
-        self._client      = aiohttp.ClientSession()
-        self._auth_header = {
-            'Authorization': api_key
-        }
+        self._client = requests.Session()
+        self._client.headers.update({'Authorization': api_key})
 
-    async def fetch_departments(self, company):
-        url = f"https://api.zenefits.com/core/companies/{company}/departments"
-        async with self._client.get(url, headers=self._auth_header) as resp:
-            response = await resp.json()
-        return response
+    def fetch_departments(self, company_id, starting_from=None):
+        url = f"{self.BASE_URL}/core/companies/{company_id}/departments"
+        params = { "starting_from": starting_from } if starting_from else None
+        return self._client.get(url, params=params).json()
 
-    async def fetch_employments(self):
-        url = "https://api.zenefits.com/core/employments"
-        async with self._client.get(url, headers=self._auth_header) as resp:
-            response = await resp.json()
-        return response
+    def fetch_employments(self, starting_from=None):
+        url = f"{self.BASE_URL}/core/employments"
+        params = { "starting_from": starting_from } if starting_from else None
+        return self._client.get(url, params=params).json()
 
-    async def fetch_people(self, company):
-        url = f"https://api.zenefits.com/core/companies/{company}/people"
-        async with self._client.get(url, headers=self._auth_header) as resp:
-            response = await resp.json()
-        return response
+    def fetch_people(self, company_id, starting_from=None):
+        url = f"{self.BASE_URL}/core/companies/{company_id}/people"
+        params = { "starting_from": starting_from } if starting_from else None
+        return self._client.get(url, params=params).json()
 
-    async def fetch_time_durations(self):
-        url = "https://api.zenefits.com/time_attendance/time_durations"
-        async with self._client.get(url, headers=self._auth_header) as resp:
-            response = await resp.json()
-        return response
+    def fetch_time_durations(self, starting_from=None):
+        url = f"{self.BASE_URL}/time_attendance/time_durations"
+        params = { "starting_from": starting_from } if starting_from else None
+        return self._client.get(url, params=params).json()
 
-    async def fetch_payruns(self):
-        url = "https://api.zenefits.com/payroll/payruns"
-        async with self._client.get(url, headers=self._auth_header) as resp:
-            response = await resp.json()
-        return response
+    def fetch_payruns(self, starting_from=None):
+        url = f"{self.BASE_URL}/payroll/payruns"
+        params = { "starting_from": starting_from } if starting_from else None
+        return self._client.get(url, params=params).json()
 
-    async def fetch_pay_stubs(self):
-        url = "https://api.zenefits.com/payroll/payrun_pay_stubs"
-        async with self._client.get(url, headers=self._auth_header) as resp:
-            response = await resp.json()
-        return response
+    def fetch_pay_stubs(self, starting_from=None):
+        url = f"{self.BASE_URL}/payroll/payrun_pay_stubs"
+        params = { "starting_from": starting_from } if starting_from else None
+        return self._client.get(url, params=params).json()
 
 
