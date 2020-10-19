@@ -1,0 +1,179 @@
+{
+    "type": ["object", "null"],
+    "properties": {
+        "banks": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "city": {
+            "type": ["string", "null"]
+        },
+        "company": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "country": {
+            "type": ["string", "null"]
+        },
+        "date_of_birth": {
+            "type": ["string", "null"]
+        },
+        "department": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "employments": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "first_name": {
+            "type": ["string", "null"]
+        },
+        "preferred_name": {
+            "type": ["string", "null"]
+        },
+        "id": {
+            "type": ["string", "null"],
+            "key": true
+        },
+        "employee_number": {
+            "type": ["string", "null"]
+        },
+        "last_name": {
+            "type": ["string", "null"]
+        },
+        "location": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "manager": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "object": {
+            "type": ["string", "null"]
+        },
+        "postal_code": {
+            "type": ["string", "null"]
+        },
+        "state": {
+            "type": ["string", "null"]
+        },
+        "status": {
+            "type": ["string", "null"]
+        },
+        "street1": {
+            "type": ["string", "null"]
+        },
+        "street2": {
+            "type": ["string", "null"]
+        },
+        "subordinates": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "title": {
+            "type": ["string", "null"]
+        },
+        "work_email": {
+            "type": ["string", "null"]
+        },
+        "personal_email": {
+            "type": ["string", "null"]
+        },
+        "work_phone": {
+            "type": ["string", "null"]
+        },
+        "personal_phone": {
+            "type": ["string", "null"]
+        },
+        "gender": {
+            "type": ["string", "null"]
+        },
+        "personal_pronoun": {
+            "type": ["string", "null"]
+        },
+        "photo_url": {
+            "type": ["string", "null"]
+        },
+        "photo_thumbnail_url": {
+            "type": ["string", "null"]
+        },
+        "federal_filing_status": {
+            "type": ["string", "null"]
+        },
+        "social_security_number": {
+            "type": ["string", "null"]
+        }
+    }
+}

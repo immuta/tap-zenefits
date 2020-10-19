@@ -1,31 +1,9 @@
-import json
-
-
-class Departments:
-    schema = {
-        "properties": {
-            "company": {
-                "object": {
-                    "type": ["string", "null"]
-                },
-                "ref_object": {
-                    "type": ["string", "null"]
-                },
-                "url": {
-                    "type": ["string", "null"]
-                }
-            },
-            "id": {
-                "type": ["string", "null"],
-                "key": True
-            },
-            "name": {
-                "type": ["string", "null"]
-            },
-            "object": {
-                "type": ["string", "null"]
-            },
-            "people": {
+{
+    "type": ["object", "null"],
+    "properties": {
+        "company": {
+            "type": ["object", "null"],
+            "properties": {
                 "object": {
                     "type": ["string", "null"]
                 },
@@ -37,4 +15,32 @@ class Departments:
                 }
             }
         },
+        "id": {
+            "type": ["string", "null"],
+            "key": true
+        },
+        "name": {
+            "type": ["string", "null"]
+        },
+        "object": {
+            "type": ["string", "null"]
+        },
+        "people": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "url": {
+            "type": ["string", "null"]
+        }
     }
+}
