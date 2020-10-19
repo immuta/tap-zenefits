@@ -11,8 +11,7 @@ setup(
     py_modules=["tap_zenefits"],
     install_requires=[
         "singer-python==5.9.0",
-        "requests",
-        "aiohttp==3.6.2"
+        "requests"
     ],
     entry_points="""
     [console_scripts]
