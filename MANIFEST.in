@@ -1,1 +1,1 @@
-include tap_shipstation/schemas/*.json
+include tap_zenefits/schemas/*.json
