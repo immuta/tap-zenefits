@@ -3,13 +3,17 @@ import requests
 
 class ZenefitsClient:
     BASE_URL = "https://api.zenefits.com"
+    USE_COMPANY_ID = False
 
     def __init__(self, api_key):
         self._client = requests.Session()
         self._client.headers.update({'Authorization': api_key})
 
-    def fetch_departments(self, company_id, starting_after=None):
-        url = f"{self.BASE_URL}/core/companies/{company_id}/departments"
+    def fetch_departments(self, company_id=None, starting_after=None):
+        if self.USE_COMPANY_ID:
+            url = f"{self.BASE_URL}/core/companies/{company_id}/departments"
+        else:
+            url = f"{self.BASE_URL}/core/departments"
         params = { "starting_after": starting_after } if starting_after else None
         return self._client.get(url, params=params).json()
 
@@ -18,8 +22,11 @@ class ZenefitsClient:
         params = { "starting_after": starting_after } if starting_after else None
         return self._client.get(url, params=params).json()
 
-    def fetch_people(self, company_id, starting_after=None):
-        url = f"{self.BASE_URL}/core/companies/{company_id}/people"
+    def fetch_people(self, company_id=None, starting_after=None):
+        if self.USE_COMPANY_ID:
+            url = f"{self.BASE_URL}/core/companies/{company_id}/people"
+        else:
+            url = f"{self.BASE_URL}/core/people"
         params = { "starting_after": starting_after } if starting_after else None
         return self._client.get(url, params=params).json()
 

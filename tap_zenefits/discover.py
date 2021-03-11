@@ -32,6 +32,10 @@ def get_schemas():
         if stream_object.replication_key:
             meta = metadata.write(meta, ('properties', stream_object.replication_key), 'inclusion', 'automatic')
 
+        # Select a few default-selected strings
+        if stream_name in ["people", "departments", "employments"]:
+            meta = metadata.write(meta, (), 'selected', "true")
+
         meta = metadata.to_list(meta)
 
         schemas[stream_name] = schema

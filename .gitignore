@@ -6,3 +6,7 @@ tests/cassettes
 .coverage
 *.DS_Store
 config*
+catalog.json
+
+.venv
+*.egg-info
