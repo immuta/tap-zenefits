@@ -7,7 +7,7 @@ from singer.catalog import write_catalog
 from .discover import discover
 from .sync import sync
 
-REQUIRED_CONFIG_KEYS = ['token']
+REQUIRED_CONFIG_KEYS = ["token", "company_id"]
 
 LOGGER = singer.get_logger()
 
