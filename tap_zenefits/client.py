@@ -7,7 +7,7 @@ class ZenefitsClient:
 
     def __init__(self, api_key):
         self._client = requests.Session()
-        self._client.headers.update({'Authorization': api_key})
+        self._client.headers.update({'Authorization': f'Bearer {api_key}'})
 
     def fetch_departments(self, company_id=None, starting_after=None):
         if self.USE_COMPANY_ID:
