@@ -16,7 +16,7 @@ class ZenefitsClient:
     def fetch_custom_field_values(self, starting_after=None):
         url = f"{self.BASE_URL}/core/custom_field_values"
         params = { "starting_after": starting_after } if starting_after else None
-        return self._client.get(url, params=None).json()
+        return self._client.get(url, params=params).json()
 
     def fetch_departments(self, company_id=None, starting_after=None):
         if self.USE_COMPANY_ID:
@@ -34,7 +34,7 @@ class ZenefitsClient:
     def fetch_locations(self, starting_after=None):
         url = f"{self.BASE_URL}/core/locations"
         params = { "starting_after": starting_after } if starting_after else None
-        return self._client.get(url, params=None).json()
+        return self._client.get(url, params=params).json()
 
     def fetch_people(self, company_id=None, starting_after=None):
         if self.USE_COMPANY_ID:

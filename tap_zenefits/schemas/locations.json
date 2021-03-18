@@ -2,49 +2,49 @@
     "type": "object",
     "properties": {
         "city": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "name": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "zip": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "people": {
             "type": "object",
             "properties": {
                 "url": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "object": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "ref_object": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 }
             },
             "additionalProperties": true
         },
         "url": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "street1": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "street2": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "object": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "phone": {
             "type": ["string", "null"]
         },
         "state": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "country": {
-            "type": "string"
+            "type": ["string", "null"]
         },
         "company": {
             "type": "object",
