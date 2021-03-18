@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "can_manager_view_field": {
+            "type": "boolean"
+        },
+        "custom_field_values": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "object": {
+                    "type": "string"
+                },
+                "ref_object": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true
+        },
+        "person_during_onboarding": {
+            "type": "boolean"
+        },
+        "name": {
+            "type": "string"
+        },
+        "is_field_completer_person": {
+            "type": "boolean"
+        },
+        "url": {
+            "type": "string"
+        },
+        "is_sensitive": {
+            "type": "boolean"
+        },
+        "is_field_required": {
+            "type": "boolean"
+        },
+        "object": {
+            "type": "string"
+        },
+        "can_person_view_field": {
+            "type": "boolean"
+        },
+        "can_person_edit_field": {
+            "type": "boolean"
+        },
+        "company_during_hiring": {
+            "type": "boolean"
+        },
+        "custom_field_type": {
+            "type": "string"
+        },
+        "help_url": {
+            "type": ["string", "null"]
+        },
+        "help_text": {
+            "type": "string"
+        },
+        "help_url_media": {
+            "type": ["string", "null"]
+        },
+        "id": {
+            "type": "string"
+        },
+        "media_file_type": {
+            "type": ["string", "null"]
+        }
+    },
+    "additionalProperties": true
+}

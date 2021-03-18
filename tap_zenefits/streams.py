@@ -48,7 +48,24 @@ class Departments(FullTableStream):
             for department in departments:
                 yield department
             next_url = data.get('next_url', None)
-            
+
+class CustomFields(FullTableStream):
+    tap_stream_id  = 'custom_fields'
+    key_properties = ['id']
+    object_type    = 'CUSTOM_FIELDS'
+
+    def sync(self, *args, **kwargs):
+        next_url = "True"
+        while next_url:
+            starting_after = get_starting_after(next_url)
+            response = self.client.fetch_custom_fields(starting_after)
+            data = response.get('data', {})
+            time_durations = data.get('data', [])
+            for time_duration in time_durations:
+                yield time_duration
+            next_url = data.get('next_url', None)
+
+
 class Employments(FullTableStream):
     tap_stream_id  = 'employments'
     key_properties = ['id']
@@ -131,7 +148,9 @@ class TimeDurations(FullTableStream):
                 yield time_duration
             next_url = data.get('next_url', None)
 
+
 STREAMS = {
+    'custom_fields': CustomFields,
     'departments': Departments,
     'employments': Employments,
     'pay_stubs': PayStubs,
