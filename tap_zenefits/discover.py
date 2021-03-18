@@ -6,7 +6,14 @@ from singer.catalog import Catalog
 
 from .streams import STREAMS
 
-DEFAULT_SELECTED_STREAMS = ["people", "departments", "employments", "custom_fields"]
+DEFAULT_SELECTED_STREAMS = [
+    "custom_fields",
+    "custom_field_values",
+    "departments",
+    "employments",
+    "locations",
+    "people",
+]
 
 def get_abs_path(path):
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
