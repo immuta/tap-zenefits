@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "url": {
+            "type": "string"
+        },
+        "object": {
+            "type": "string"
+        },
+        "custom_field": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "object": {
+                    "type": "string"
+                },
+                "ref_object": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true
+        },
+        "value": {
+            "type": ["string", "null"]
+        },
+        "person": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "object": {
+                    "type": "string"
+                },
+                "ref_object": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": true
+        },
+        "id": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": true
+}

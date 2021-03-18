@@ -6,6 +6,15 @@ from singer.catalog import Catalog
 
 from .streams import STREAMS
 
+DEFAULT_SELECTED_STREAMS = [
+    "custom_fields",
+    "custom_field_values",
+    "departments",
+    "employments",
+    "locations",
+    "people",
+]
+
 def get_abs_path(path):
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
 
@@ -33,7 +42,7 @@ def get_schemas():
             meta = metadata.write(meta, ('properties', stream_object.replication_key), 'inclusion', 'automatic')
 
         # Select a few default-selected strings
-        if stream_name in ["people", "departments", "employments"]:
+        if stream_name in DEFAULT_SELECTED_STREAMS:
             meta = metadata.write(meta, (), 'selected', "true")
 
         meta = metadata.to_list(meta)

@@ -31,6 +31,39 @@ class CatalogStream(Stream):
 class FullTableStream(Stream):
     replication_method = 'FULL_TABLE'
 
+
+class CustomFields(FullTableStream):
+    tap_stream_id  = 'custom_fields'
+    key_properties = ['id']
+    object_type    = 'CUSTOM_FIELDS'
+
+    def sync(self, *args, **kwargs):
+        next_url = "True"
+        while next_url:
+            starting_after = get_starting_after(next_url)
+            response = self.client.fetch_custom_fields(starting_after)
+            data = response.get('data', {})
+            values = data.get('data', [])
+            for record in values:
+                yield record
+            next_url = data.get('next_url', None)
+
+class CustomFieldValues(FullTableStream):
+    tap_stream_id  = 'custom_field_values'
+    key_properties = ['id']
+    object_type    = 'CUSTOM_FIELD_VALUES'
+
+    def sync(self, *args, **kwargs):
+        next_url = "True"
+        while next_url:
+            starting_after = get_starting_after(next_url)
+            response = self.client.fetch_custom_field_values(starting_after)
+            data = response.get('data', {})
+            values = data.get('data', [])
+            for record in values:
+                yield record
+            next_url = data.get('next_url', None)
+
 class Departments(FullTableStream):
     tap_stream_id  = 'departments'
     key_properties = ['id']
@@ -48,7 +81,7 @@ class Departments(FullTableStream):
             for department in departments:
                 yield department
             next_url = data.get('next_url', None)
-            
+
 class Employments(FullTableStream):
     tap_stream_id  = 'employments'
     key_properties = ['id']
@@ -63,6 +96,22 @@ class Employments(FullTableStream):
             employments = data.get('data', [])
             for employment in employments:
                 yield employment
+            next_url = data.get('next_url', None)
+
+class Locations(FullTableStream):
+    tap_stream_id  = 'locations'
+    key_properties = ['id']
+    object_type    = 'LOCATIONS'
+
+    def sync(self, *args, **kwargs):
+        next_url = "True"
+        while next_url:
+            starting_after = get_starting_after(next_url)
+            response = self.client.fetch_locations(starting_after)
+            data = response.get('data', {})
+            values = data.get('data', [])
+            for record in values:
+                yield record
             next_url = data.get('next_url', None)
 
 class PayStubs(FullTableStream):
@@ -97,7 +146,7 @@ class Payruns(FullTableStream):
                 yield payrun
             next_url = data.get('next_url', None)
 
-class People(FullTableStream):
+class People(CatalogStream):
     tap_stream_id  = 'people'
     key_properties = ['id']
     object_type    = 'PEOPLE'
@@ -131,9 +180,13 @@ class TimeDurations(FullTableStream):
                 yield time_duration
             next_url = data.get('next_url', None)
 
+
 STREAMS = {
+    'custom_fields': CustomFields,
+    'custom_field_values': CustomFieldValues,
     'departments': Departments,
     'employments': Employments,
+    'locations': Locations,
     'pay_stubs': PayStubs,
     'payruns': Payruns,
     'people': People,
