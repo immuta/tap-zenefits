@@ -9,6 +9,15 @@ class ZenefitsClient:
         self._client = requests.Session()
         self._client.headers.update({'Authorization': f'Bearer {api_key}'})
 
+    def fetch_custom_fields(self, starting_after=None):
+        url = f"{self.BASE_URL}/core/custom_fields"
+        return self._client.get(url, params=None).json()
+
+    def fetch_custom_field_values(self, starting_after=None):
+        url = f"{self.BASE_URL}/core/custom_field_values"
+        params = { "starting_after": starting_after } if starting_after else None
+        return self._client.get(url, params=None).json()
+
     def fetch_departments(self, company_id=None, starting_after=None):
         if self.USE_COMPANY_ID:
             url = f"{self.BASE_URL}/core/companies/{company_id}/departments"
@@ -21,6 +30,11 @@ class ZenefitsClient:
         url = f"{self.BASE_URL}/core/employments"
         params = { "starting_after": starting_after } if starting_after else None
         return self._client.get(url, params=params).json()
+
+    def fetch_locations(self, starting_after=None):
+        url = f"{self.BASE_URL}/core/locations"
+        params = { "starting_after": starting_after } if starting_after else None
+        return self._client.get(url, params=None).json()
 
     def fetch_people(self, company_id=None, starting_after=None):
         if self.USE_COMPANY_ID:
