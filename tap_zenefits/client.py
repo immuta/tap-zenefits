@@ -59,4 +59,9 @@ class ZenefitsClient:
         params = { "starting_after": starting_after } if starting_after else None
         return self._client.get(url, params=params).json()
 
+    def fetch_equal_employment_opportunity(self, starting_after=None):
+        url = f"{self.BASE_URL}/core/equal_employment_opportunities"
+        params = { "starting_after": starting_after } if starting_after else None
+        return self._client.get(url, params=params).json()
+
 
