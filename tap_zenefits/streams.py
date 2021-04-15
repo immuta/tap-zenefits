@@ -130,6 +130,23 @@ class PayStubs(FullTableStream):
                 yield pay_stub
             next_url = data.get('next_url', None)
 
+
+class EqualEmploymentOpportunities(FullTableStream):
+    tap_stream_id  = 'equal_employment_oppportunities'
+    key_properties = ['id']
+    object_type    = 'EQUAL_EMPLOYMENT_OPPORTUNITIES'
+
+    def sync(self, *args, **kwargs):
+        next_url = "True"
+        while next_url:
+            starting_after = get_starting_after(next_url)
+            response = self.client.fetch_equal_employment_opportunity(starting_after)
+            data = response.get('data', {})
+            results = data.get('data', [])
+            for record in results:
+                yield record
+            next_url = data.get('next_url', None)
+
 class Payruns(FullTableStream):
     tap_stream_id  = 'payruns'
     key_properties = ['id']
@@ -186,6 +203,7 @@ STREAMS = {
     'custom_field_values': CustomFieldValues,
     'departments': Departments,
     'employments': Employments,
+    'equal_employment_opportunities': EqualEmploymentOpportunities,
     'locations': Locations,
     'pay_stubs': PayStubs,
     'payruns': Payruns,

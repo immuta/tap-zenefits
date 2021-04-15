@@ -1,0 +1,35 @@
+{
+    "type": ["object", "null"],
+    "properties": {
+        "id": {
+            "type": ["string"],
+            "key": true
+        },
+        "race": {
+            "type": ["string", "null"]
+        },
+        "job_category": {
+            "type": ["string", "null"]
+        },
+        "object": {
+            "type": ["string", "null"]
+        },
+        "person": {
+            "type": ["object", "null"],
+            "properties": {
+                "object": {
+                    "type": ["string", "null"]
+                },
+                "ref_object": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                }
+            }
+        },
+        "url": {
+            "type": ["string", "null"]
+        }
+    }
+}

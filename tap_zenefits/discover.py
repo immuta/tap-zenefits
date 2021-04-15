@@ -11,6 +11,7 @@ DEFAULT_SELECTED_STREAMS = [
     "custom_field_values",
     "departments",
     "employments",
+    "equal_employment_opportunities",
     "locations",
     "people",
 ]
